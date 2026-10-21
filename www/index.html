@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#426b55">
+  <meta name="description" content="Et roligt Sudoku-spil, du kan tage med dig.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <title>Sudoku — dagens pause</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">▦</div>
+        <div><div class="brand-name">Lille Hjernepause</div><div class="brand-caption">Et roligt øjeblik til dig</div></div>
+      </div>
+      <div class="header-note">Træk vejret. Tænk dig om. God fornøjelse.</div>
+      <button id="installButton" class="install-button" type="button">Installer</button>
+    </header>
+    <main>
+      <section>
+        <div class="intro">
+          <div class="eyebrow">Dagens udfordring</div>
+          <h1>Sudoku</h1>
+          <p>Fyld felterne, så hvert tal kun står én gang i hver række, kolonne og firkant.</p>
+        </div>
+        <div class="game-card">
+          <div class="board-top">
+            <select id="difficulty" class="difficulty" aria-label="Sværhedsgrad">
+              <option value="easy">Let</option>
+              <option value="medium" selected>Mellem</option>
+              <option value="hard">Svær</option>
+            </select>
+            <div class="stats">
+              <div class="stat">Tid<strong id="timer">00:00</strong></div>
+              <div class="stat">Fejl<strong id="mistakes">0 / 3</strong></div>
+            </div>
+          </div>
+          <div id="board" class="board" role="grid" aria-label="Sudoku-bræt"></div>
+          <div class="tools">
+            <button id="notesButton" class="tool" type="button" aria-pressed="false"><span>✎</span>Noter</button>
+            <button id="eraseButton" class="tool" type="button"><span>⌫</span>Visk ud</button>
+            <button id="hintButton" class="tool" type="button"><span>✦</span>Hjælp</button>
+            <button id="checkButton" class="tool" type="button"><span>✓</span>Tjek</button>
+          </div>
+          <div id="numbers" class="numbers" aria-label="Vælg et tal"></div>
+          <div id="message" class="message" aria-live="polite"></div>
+        </div>
+      </section>
+      <aside class="side">
+        <h2>Sådan spiller du</h2>
+        <p>Vælg et felt, og tryk derefter på et tal. Du kan også bruge tastaturets tal 1–9. Brug <strong>Noter</strong> til at skrive mulige tal i et felt.</p>
+        <div class="tip">
+          <div class="tip-label">Et lille tip</div>
+          <p>Start med rækker, kolonner eller firkanter, hvor der allerede er mange tal. Hvilke tal mangler?</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="dialog">
+      <div id="dialogIcon" class="dialog-icon">🎉</div>
+      <h2 id="dialogTitle">Flot klaret!</h2>
+      <p id="dialogText"></p>
+      <button id="newGameButton" class="new-game" type="button">Spil igen</button>
+    </div>
+  </div>
+  <script src="game.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "Lille Hjernepause — Sudoku",
+  "short_name": "Sudoku",
+  "description": "Et roligt Sudoku-spil, du kan tage med dig.",
+  "lang": "da",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f3ee",
+  "theme_color": "#426b55",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
