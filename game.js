@@ -7,7 +7,6 @@
       const difficultyElement = document.getElementById("difficulty");
       const notesButton = document.getElementById("notesButton");
       const overlay = document.getElementById("overlay");
-      const installButton = document.getElementById("installButton");
       const solution = Array.from({ length: 9 }, () => Array(9).fill(0));
       const puzzle = Array.from({ length: 9 }, () => Array(9).fill(0));
       const entries = Array.from({ length: 9 }, () => Array(9).fill(0));
@@ -19,44 +18,6 @@
       let started = false;
       let finished = false;
       let timerInterval = null;
-      let installPrompt = null;
-      const isSecureOrigin = location.protocol === "https:" ||
-        ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
-
-      window.addEventListener("beforeinstallprompt", event => {
-        event.preventDefault();
-        installPrompt = event;
-      });
-
-      window.addEventListener("appinstalled", () => {
-        installPrompt = null;
-        installButton.hidden = true;
-        setMessage("Sudoku er installeret på din telefon.", "success");
-      });
-
-      installButton.addEventListener("click", async () => {
-        if (!installPrompt) {
-          if (!isSecureOrigin) {
-            setMessage("For at installere appen skal den åbnes fra en sikker HTTPS-adresse.");
-            return;
-          }
-          setMessage("Brug browserens menu: “Føj til hjemmeskærm” eller “Installer app”.");
-          return;
-        }
-        installPrompt.prompt();
-        await installPrompt.userChoice;
-        installPrompt = null;
-      });
-
-      if (window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true) {
-        installButton.hidden = true;
-      }
-
-      if ("serviceWorker" in navigator && isSecureOrigin) {
-        navigator.serviceWorker.register("./sw.js").catch(error => {
-          console.error("Sudoku kunne ikke klargøre offline-appen:", error);
-        });
-      }
 
       function shuffled(values) {
         const result = [...values];

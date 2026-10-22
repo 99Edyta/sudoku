@@ -115,11 +115,6 @@
     .dialog h2 { margin: 9px 0 7px; font-size: 25px; letter-spacing: -.04em; }
     .dialog p { margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.6; }
     .new-game { border: 0; border-radius: 10px; background: var(--green); color: white; padding: 12px 19px; font-weight: 700; cursor: pointer; }
-    .install-button {
-      border: 1px solid #dce1da; border-radius: 10px; background: transparent;
-      padding: 8px 11px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer;
-    }
-    .install-button[hidden] { display: none; }
     @media (max-width: 760px) {
       body { min-height: 100vh; min-height: 100svh; padding: 0; background: var(--paper); }
       .page {

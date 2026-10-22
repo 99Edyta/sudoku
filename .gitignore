@@ -5,5 +5,3 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
-ios/App/Pods/
-ios/App/build/
